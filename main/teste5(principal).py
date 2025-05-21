@@ -137,6 +137,7 @@ def atacar(jogador, alvo, ataque):
             vida_usuario = max(0, vida_usuario - dano)
         mensagem = f"{'Você' if jogador == 'usuario' else computador} usou {ataque} causando {dano} de dano!"
 
+
 botao_rects = []
 
 def desenhar_botoes(ataques):
