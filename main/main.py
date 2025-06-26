@@ -101,9 +101,9 @@ def mostrar_ranking_tela():
 
 
 # Fontes
-font_pequena = pygame.font.Font("data/njnaruto.ttf", 18)
-font_media = pygame.font.Font("data/njnaruto.ttf", 24)
-font_grande = pygame.font.Font("data/njnaruto.ttf", 48)
+font_pequena = pygame.font.Font("fontes/njnaruto.ttf", 18)
+font_media = pygame.font.Font("fontes/njnaruto.ttf", 24)
+font_grande = pygame.font.Font("fontes/njnaruto.ttf", 48)
 
 
 def desenhar_texto(texto, x, y, cor=BLACK, fonte=font_pequena):
@@ -141,7 +141,7 @@ def obter_nome_jogador():
     return nome.strip()
 
 
-carregamento = pygame.image.load("data/carregamento.jpg")
+carregamento = pygame.image.load("fundo/carregamento.jpg")
 carregamento = pygame.transform.scale(carregamento, (WIDTH, HEIGHT))
 
 
@@ -179,29 +179,29 @@ mensagem = ""
 
 
 # Sons 
-pygame.mixer.music.load("data/musicabatalha.mp3")
+pygame.mixer.music.load("audio/musicabatalha.mp3")
 pygame.mixer.music.play(-1)
 pygame.mixer.music.set_volume(0.05)
 
 
-somrasengan = pygame.mixer.Sound("data/somrasengan.mp3"); somrasengan.set_volume(0.15)
-somchidori = pygame.mixer.Sound("data/somchidori.mp3"); somchidori.set_volume(0.15)
-somboladefogo = pygame.mixer.Sound("data/somboladefogo.mp3"); somboladefogo.set_volume(0.15)
-somamaterasu = pygame.mixer.Sound("data/somamaterasu.mp3"); somamaterasu.set_volume(0.2)
-somcombodoleao = pygame.mixer.Sound("data/somcombodoleao.MP3"); somcombodoleao.set_volume(0.15)
-somclones = pygame.mixer.Sound("data/somclones.mp3"); somclones.set_volume(0.15)
-sommilanosdemorte = pygame.mixer.Sound("data/sommilanosdemorte.MP3"); sommilanosdemorte.set_volume(0.3)
-sompalma = pygame.mixer.Sound("data/sompalma.MP3"); sompalma.set_volume(0.15)
-somregenera = pygame.mixer.Sound("data/somregenera.mp3"); somregenera.set_volume(1)
-somkamui = pygame.mixer.Sound("data/somkamui.mp3"); somkamui.set_volume(0.15)
-somraikiri = pygame.mixer.Sound("data/somraikiri.mp3"); somraikiri.set_volume(0.15)
-somraijin = pygame.mixer.Sound("data/somraijin.MP3"); somraijin.set_volume(0.15)
-somdragao = pygame.mixer.Sound("data/somdragao.mp3"); somdragao.set_volume(0.15)
-somtsunami = pygame.mixer.Sound("data/somtsunami.mp3"); somtsunami.set_volume(0.15)
+somrasengan = pygame.mixer.Sound("audio/somrasengan.mp3"); somrasengan.set_volume(0.15)
+somchidori = pygame.mixer.Sound("audio/somchidori.mp3"); somchidori.set_volume(0.15)
+somboladefogo = pygame.mixer.Sound("audio/somboladefogo.mp3"); somboladefogo.set_volume(0.15)
+somamaterasu = pygame.mixer.Sound("audio/somamaterasu.mp3"); somamaterasu.set_volume(0.2)
+somcombodoleao = pygame.mixer.Sound("audio/somcombodoleao.MP3"); somcombodoleao.set_volume(0.15)
+somclones = pygame.mixer.Sound("audio/somclones.mp3"); somclones.set_volume(0.15)
+sommilanosdemorte = pygame.mixer.Sound("audio/sommilanosdemorte.MP3"); sommilanosdemorte.set_volume(0.3)
+sompalma = pygame.mixer.Sound("audio/sompalma.MP3"); sompalma.set_volume(0.15)
+somregenera = pygame.mixer.Sound("audio/somregenera.mp3"); somregenera.set_volume(1)
+somkamui = pygame.mixer.Sound("audio/somkamui.mp3"); somkamui.set_volume(0.15)
+somraikiri = pygame.mixer.Sound("audio/somraikiri.mp3"); somraikiri.set_volume(0.15)
+somraijin = pygame.mixer.Sound("audio/somraijin.MP3"); somraijin.set_volume(0.15)
+somdragao = pygame.mixer.Sound("audio/somdragao.mp3"); somdragao.set_volume(0.15)
+somtsunami = pygame.mixer.Sound("audio/somtsunami.mp3"); somtsunami.set_volume(0.15)
 
 
 # Imagens 
-background = pygame.image.load("data/fundo.png")
+background = pygame.image.load("fundo/fundo.png")
 background = pygame.transform.scale(background, (WIDTH, HEIGHT))
 sprite_usuario = None
 sprite_pc = None
@@ -217,7 +217,7 @@ ultima_mensagem = ""
 
 
 def carregar_sprite(nome, lado='esquerdo'):
-    caminho = f"data/{nome.lower()}.png"
+    caminho = f"sprites/{nome.lower()}.png"
     sprite = pygame.image.load(caminho).convert_alpha()
     sprite = pygame.transform.scale(sprite, (240, 240))
     if lado == 'direito':
@@ -318,7 +318,7 @@ def trocar_sprite_dano(jogador, tipo='dano'):
 
 def animar_ataque(origem, destino, ataque, lado):
     passos = 20
-    imagem = pygame.image.load(f"data/{ataque.lower().replace(' ', '')}.png").convert_alpha()
+    imagem = pygame.image.load(f"ataques/{ataque.lower().replace(' ', '')}.png").convert_alpha()
     imagem = pygame.transform.scale(imagem, (80, 80))
     if lado == 'pc':
         imagem = pygame.transform.flip(imagem, True, False)
